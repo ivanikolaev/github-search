@@ -18,6 +18,10 @@ function HomePage() {
         setDropdown(debounced.length > 3 && data?.length! > 0)
     }, [debounced, data])
 
+    const handleUserClick = (username: string) => {
+
+    }
+
     return (
         <div className='flex justify-center pt-10 h-full w-full'>
             {isError && <p className='text-center text-red-600'>Something went wrong...</p>}
@@ -35,6 +39,7 @@ function HomePage() {
                     {data && data.map(user => (
                         <li
                             key={user.id}
+                            onClick={() => handleUserClick(user.login)}
                             className='py-2 px-4 hover:bg-gray-500 hover:text-white transition-colors cursor-pointer'
                         >
                             {user.login}

@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { IUser, ServerResponse, SearchUsersParams } from '../../models/models'
+import { IUser, ServerResponse, SearchUsersParams, IRepo } from '../../models/models'
 
 export const githubApi = createApi({
     reducerPath: 'github/api/v1',
@@ -15,6 +15,11 @@ export const githubApi = createApi({
                 }
             }),
             transformResponse: (response: ServerResponse<IUser>) => (response.items)
+        }),
+        getUserRepos: build.query<IRepo[], string>({
+            query: (username: string) => ({
+                url: `users/${username}/repos`
+            })
         })
     })
 })
