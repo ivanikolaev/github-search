@@ -10,7 +10,7 @@ function FavouriteCard({ repo }: { repo: string }) {
                 href={repo}
                 target='_blank'
             >
-                {repo.substring(repo.lastIndexOf('/') + 1)}
+                {repo.substring(repo.indexOf('/') + 13)}
             </a>
             <button
                 className='py-1 px-5 bg-red-400 rounded hover:shadow-md transition-all'
