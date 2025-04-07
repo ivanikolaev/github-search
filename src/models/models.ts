@@ -4,6 +4,33 @@ export interface ServerResponse<T> {
     items: T[];
 }
 
+export interface TrendingParams {
+    language: string;
+    since: string;
+}
+
+export interface RepoDetailsParams {
+    owner: string;
+    repo: string;
+}
+
+export interface IUserDetails extends IUser {
+    name: string | null;
+    company: string | null;
+    blog: string | null;
+    location: string | null;
+    email: string | null;
+    hireable: boolean | null;
+    bio: string | null;
+    twitter_username: string | null;
+    public_repos: number;
+    public_gists: number;
+    followers: number;
+    following: number;
+    created_at: string;
+    updated_at: string;
+}
+
 export interface IUser {
     login: string;
     id: number;
